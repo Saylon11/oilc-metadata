@@ -1,0 +1,31 @@
+{
+  "name": "OILCOIN",
+  "symbol": "OILC",
+  "description": "The official utility token of Project C³ – Crystal Clear Commodities™. $OILC enables trustless, real-time ownership, settlement, and transfer of physical crude oil on Solana. Built by veteran oil executives to power the future of on-chain energy infrastructure.",
+  "image": "https://project3c.xyz/assets/OILC_logo.png",
+  "seller_fee_basis_points": 0,
+  "attributes": [
+    {
+      "trait_type": "Sector",
+      "value": "Energy"
+    },
+    {
+      "trait_type": "Utility",
+      "value": "Oil Logistics"
+    },
+    {
+      "trait_type": "Project",
+      "value": "Project C³"
+    }
+  ],
+  "external_url": "https://project3c.xyz",
+  "properties": {
+    "category": "utility",
+    "creators": [
+      {
+        "address": "Cwn9d1E636CPBTgtPXZAuqn6TgUh6mPpUMBr3w7kpump",
+        "share": 100
+      }
+    ]
+  }
+}
