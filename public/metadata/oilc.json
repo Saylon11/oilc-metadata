@@ -1,8 +1,8 @@
 {
-  "name": "OILCOIN",
-  "symbol": "OILC",
-  "description": "The official utility token of Project C³ – Crystal Clear Commodities™. $OILC enables trustless, real-time ownership, settlement, and transfer of physical crude oil on Solana. Built by veteran oil executives to power the future of on-chain energy infrastructure.",
-  "image": "https://project3c.xyz/assets/OILC_logo.png",
+  "name": "Oil Coin",
+  "symbol": "OILCOIN",
+  "description": "The official utility token of Project C³ – Crystal Clear Commodities™. $OILCOIN enables trustless, real-time ownership, settlement, and transfer of physical crude oil on Solana. Vault-wrapped and metadata-verified by the Project C³ Registry.",
+  "image": "https://gateway.pinata.cloud/ipfs/bafybeieqqa7vqdpgjdfpztxbrxmnp5ve4lo4s6ek655siijwn36i3hszsy",
   "seller_fee_basis_points": 0,
   "attributes": [
     {
@@ -11,19 +11,29 @@
     },
     {
       "trait_type": "Utility",
-      "value": "Oil Logistics"
+      "value": "C³ Smart Vault"
     },
     {
       "trait_type": "Project",
       "value": "Project C³"
+    },
+    {
+      "trait_type": "Edition",
+      "value": "MKII"
     }
   ],
-  "external_url": "https://project3c.xyz",
+  "external_url": "https://www.projectc3.xyz/oilcoin",
+  "vault_signature": "C³-MKII-2025",
+  "provenance_hash": "d208d6cd0b6011c726d2d30584ea6873e9e31aa1bbc1d5a4e9ef859e34173c56",
+  "vault_nft": "6qN1S3TBNXvNhkvuc51sXR1sQ7dLLsUsa5sVE1scN5LT",
+  "token_mint": "Your_OILCOIN_SPL_MINT_HERE",
+  "mint_authority": "BeuXNjvA1Tpg1vAg4Zge1ekg3mfEt1ARohPCXahDR6UU",
+  "verified_by": "Project C³ Registry",
   "properties": {
     "category": "utility",
     "creators": [
       {
-        "address": "Cwn9d1E636CPBTgtPXZAuqn6TgUh6mPpUMBr3w7kpump",
+        "address": "BeuXNjvA1Tpg1vAg4Zge1ekg3mfEt1ARohPCXahDR6UU",
         "share": 100
       }
     ]
