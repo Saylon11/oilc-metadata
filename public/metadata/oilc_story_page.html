@@ -19,10 +19,19 @@
     h1, h2 { color: #222; }
     a { color: #0066cc; }
     code { background: #eee; padding: 0.2rem 0.4rem; border-radius: 4px; }
+    #search {
+      padding: 0.5rem;
+      font-size: 1rem;
+      width: 100%;
+      margin: 1.5rem 0;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
   </style>
 </head>
 <body>
   <h1>🛢️ Oil Coin (OILCOIN) — A Vaulted Utility Asset by Project C³</h1>
+  <input type="text" id="search" placeholder="Search OILC, Oil Coin, etc..." />
   <p><strong>OILCOIN ($OILCOIN)</strong> is the first officially Vault-wrapped token under Project C³ — Crystal Clear Commodities™. It represents a fully reclaimed, visually verified, and metadata-authenticated version of a hijacked Solana asset.</p>
 
   <blockquote><em>"Metadata can lie. Vaults don’t."</em></blockquote>
@@ -65,5 +74,27 @@
 
   <p>This is just one Vault. Many more are coming.</p>
   <p><strong>Project C³</strong><br><em>Own the truth. Trade the future.</em></p>
+
+  <script>
+    const oilcAliases = [
+      "oil", "OILC", "$OILC", "oilcoin", "OILCOIN", "Oil Coin", "OilCoin", "oil coin"
+    ];
+
+    function checkOilcSearch(query) {
+      const normalized = query.trim().toLowerCase();
+      if (oilcAliases.includes(normalized)) {
+        window.location.href = "https://www.projectc3.xyz/oilcoin";
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const input = document.getElementById("search");
+      if (input) {
+        input.addEventListener("input", (e) => {
+          checkOilcSearch(e.target.value);
+        });
+      }
+    });
+  </script>
 </body>
 </html>
