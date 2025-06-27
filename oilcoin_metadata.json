@@ -11,13 +11,14 @@
         "uri": "https://www.projectc3.xyz/oilcoin.png",
         "type": "image/png"
       }
-    ],
-    "category": "image",
-    "creators": [
-      {
-        "address": "YOUR_WALLET_ADDRESS",
-        "share": 100
-      }
     ]
-  }
+  },
+  "replaces_token_uri": "https://ipfs.io/ipfs/QmVxprNeuW1H7W8A7Yp6RRAgpjUwPFX78AsiCtMUUDigDt",
+  "original_mint": "Cwn9d1E636CPBTgtPXZAuqn6TgUh6mPpUMBr3w7kpump",
+  "creators": [
+    {
+      "address": "YOUR_WALLET_ADDRESS",
+      "share": 100
+    }
+  ]
 }
