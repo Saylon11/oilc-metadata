@@ -1,34 +1,27 @@
-// updateMetadata.ts
-// Updates the metadata URI of the existing Vault NFT to the correct projectc3.xyz version
-
-import { Connection, Keypair, PublicKey } from "@solana/web3.js";
-import { Metaplex, keypairIdentity } from "@metaplex-foundation/js";
-import dotenv from "dotenv";
-import fs from "fs";
-
-dotenv.config();
-
-const main = async () => {
-  const connection = new Connection("https://api.mainnet-beta.solana.com", "confirmed");
-
-  // Load wallet keypair (the update authority wallet)
-  const secret = JSON.parse(fs.readFileSync(process.env.KEYPAIR_PATH!, "utf8"));
-  const wallet = Keypair.fromSecretKey(new Uint8Array(secret));
-
-  const metaplex = Metaplex.make(connection).use(keypairIdentity(wallet));
-
-  const mintAddress = new PublicKey("Fn2My1FYy5fJi7xmg2gWgNUD8M8RnqWpjdpxDBrXmEtC");
-
-  const metadata = await metaplex.nfts().findByMint({ mintAddress });
-
-  const updatedMetadataUri = "https://projectc3.xyz/oilcoin/metadata.json";
-
-  const { response } = await metaplex.nfts().update({
-    nftOrSft: metadata,
-    uri: updatedMetadataUri
-  });
-
-  console.log("✅ Metadata URI updated:", response.signature);
-};
-
-main().catch(console.error);
+{
+  "name": "OilCoin",
+  "symbol": "OILC",
+  "description": "The commodity-backed meme that started a revolution. #ProjectC3",
+  "image": "https://gateway.pinata.cloud/ipfs/bafybeieqqa7vqdpgjdfpztxbrxmnp5ve4lo4s6ek655siijwn36i3hszsy",
+  "external_url": "https://www.projectc3.xyz/oilcoin",
+  "seller_fee_basis_points": 0,
+  "attributes": [],
+  "properties": {
+    "files": [
+      {
+        "uri": "https://gateway.pinata.cloud/ipfs/bafybeieqqa7vqdpgjdfpztxbrxmnp5ve4lo4s6ek655siijwn36i3hszsy",
+        "type": "image/png"
+      }
+    ],
+    "category": "image",
+    "creators": [
+      {
+        "address": "Bms1gxfUxts2DUwooxd6hTq3tANPh8KBadgJpPNEaLyP",
+        "share": 100
+      }
+    ]
+  },
+  "original_mint": "Cwn9d1E636CPBTgtPXZAuqn6TgUh6mPpUMBr3w7kpump",
+  "c3_verified": true,
+  "vault_signature": "51b22ad64295cd5988974e42b84982f5b048ae38dcff1a151fd7488d957d4160"
+}
