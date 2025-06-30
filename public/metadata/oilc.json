@@ -1,41 +1,34 @@
-{
-  "name": "Oil Coin",
-  "symbol": "OILCOIN",
-  "description": "The official utility token of Project C³ – Crystal Clear Commodities™. $OILCOIN enables trustless, real-time ownership, settlement, and transfer of physical crude oil on Solana. Vault-wrapped and metadata-verified by the Project C³ Registry.",
-  "image": "https://gateway.pinata.cloud/ipfs/bafybeieqqa7vqdpgjdfpztxbrxmnp5ve4lo4s6ek655siijwn36i3hszsy",
-  "external_url": "https://www.projectc3.xyz/oilcoin",
-  "seller_fee_basis_points": 0,
-  "attributes": [
-    {
-      "trait_type": "Sector",
-      "value": "Energy"
-    },
-    {
-      "trait_type": "Utility",
-      "value": "C³ Smart Vault"
-    },
-    {
-      "trait_type": "Project",
-      "value": "Project C³"
-    },
-    {
-      "trait_type": "Edition",
-      "value": "MKII"
-    }
-  ],
-  "properties": {
-    "category": "utility",
-    "creators": [
-      {
-        "address": "BeuXNjvA1Tpg1vAg4Zge1ekg3mfEt1ARohPCXahDR6UU",
-        "share": 100
-      }
-    ]
-  },
-  "vault_signature": "C³-MKII-2025",
-  "provenance_hash": "d208d6cd0b6011c726d2d30584ea6873e9e31aa1bbc1d5a4e9ef859e34173c56",
-  "vault_nft": "6qN1S3TBNXvNhkvuc51sXR1sQ7dLLsUsa5sVE1scN5LT",
-  "token_mint": "2KgZAi7ZCeisEkLCni5pPuGbpf2VMkrNWMgt22Zzhvyq",
-  "mint_authority": "BeuXNjvA1Tpg1vAg4Zge1ekg3mfEt1ARohPCXahDR6UU",
-  "verified_by": "Project C³ Registry"
-}
+// updateMetadata.ts
+// Updates the metadata URI of the existing Vault NFT to the correct projectc3.xyz version
+
+import { Connection, Keypair, PublicKey } from "@solana/web3.js";
+import { Metaplex, keypairIdentity } from "@metaplex-foundation/js";
+import dotenv from "dotenv";
+import fs from "fs";
+
+dotenv.config();
+
+const main = async () => {
+  const connection = new Connection("https://api.mainnet-beta.solana.com", "confirmed");
+
+  // Load wallet keypair (the update authority wallet)
+  const secret = JSON.parse(fs.readFileSync(process.env.KEYPAIR_PATH!, "utf8"));
+  const wallet = Keypair.fromSecretKey(new Uint8Array(secret));
+
+  const metaplex = Metaplex.make(connection).use(keypairIdentity(wallet));
+
+  const mintAddress = new PublicKey("Fn2My1FYy5fJi7xmg2gWgNUD8M8RnqWpjdpxDBrXmEtC");
+
+  const metadata = await metaplex.nfts().findByMint({ mintAddress });
+
+  const updatedMetadataUri = "https://projectc3.xyz/oilcoin/metadata.json";
+
+  const { response } = await metaplex.nfts().update({
+    nftOrSft: metadata,
+    uri: updatedMetadataUri
+  });
+
+  console.log("✅ Metadata URI updated:", response.signature);
+};
+
+main().catch(console.error);
